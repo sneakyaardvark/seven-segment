@@ -13,6 +13,8 @@ SevenSegment SS0(W, X, Y, Z, A, B, C, D, E, F, G);
 
 initial
 begin
+  $dumpfile("TestBenchDataflow.vcd");
+  $dumpvars(0,TestBenchDataflow);
 W=0; X=0; Y=0; Z=0;
 #16 W=0; X=0; Y=0; Z=1;
 #16 W=0; X=0; Y=1; Z=0;

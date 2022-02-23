@@ -13,6 +13,8 @@ SevenSegment SS0(W, X, Y, Z, A, B, C, D, E, F, G);
 
 initial
 begin
+  $dumpfile("TestBenchStructural.vcd");
+  $dumpvars(0,TestBenchStructural);
 W=0; X=0; Y=0; Z=0;
 #89 W=0; X=0; Y=0; Z=1;
 #89 W=0; X=0; Y=1; Z=0;
