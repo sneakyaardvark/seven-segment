@@ -5,7 +5,7 @@
 
   BCD to seven segment display code (Dataflow Test Bench)
 */
-
+`timescale 1ns/1ns
 module TestBenchDataflow();
 reg W, X, Y, Z; //inputs
 wire A, B, C, D, E, F, G; //outputs

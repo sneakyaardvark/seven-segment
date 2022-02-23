@@ -30,7 +30,7 @@ not #14
 
 //function A
 and #15
-  U2a(AT1, Xbar, Ybar),
+  U2a(AT1, Xbar, Zbar),
   U2b(AT2, X, Z);
 or #15
   U3a(AT3, W, AT1),
