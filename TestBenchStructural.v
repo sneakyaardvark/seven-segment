@@ -16,17 +16,17 @@ begin
   //dump data for use with GTKWave
   $dumpfile("TestBenchStructural.vcd");
   $dumpvars(0,TestBenchStructural);
-W=0; X=0; Y=0; Z=0;
-#89 W=0; X=0; Y=0; Z=1;
-#89 W=0; X=0; Y=1; Z=0;
-#89 W=0; X=0; Y=1; Z=1;
-#89 W=0; X=1; Y=0; Z=0;
-#89 W=0; X=1; Y=0; Z=1;
-#89 W=0; X=1; Y=1; Z=0;
-#89 W=0; X=1; Y=1; Z=1;
-#89 W=1; X=0; Y=0; Z=0;
-#89 W=1; X=0; Y=0; Z=1;
-#89
+     W=0; X=0; Y=0; Z=0;
+#178 W=0; X=0; Y=0; Z=1;
+#178 W=0; X=0; Y=1; Z=0;
+#178 W=0; X=0; Y=1; Z=1;
+#178 W=0; X=1; Y=0; Z=0;
+#178 W=0; X=1; Y=0; Z=1;
+#178 W=0; X=1; Y=1; Z=0;
+#178 W=0; X=1; Y=1; Z=1;
+#178 W=1; X=0; Y=0; Z=0;
+#178 W=1; X=0; Y=0; Z=1;
+#178
 $finish();
 end
 endmodule

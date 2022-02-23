@@ -3,7 +3,7 @@
   February 2022
   Andrew Stanton
 
-  BCD to seven segment display code (Strucural code)
+  BCD to seven segment display code (Structural code)
 */
 
 module SevenSegment(W, X, Y, Z, A, B, C, D, E, F, G);
@@ -23,10 +23,10 @@ wire GT1, GT2, GT3, GT4, GT5;
 
 //NOT for all inputs
 not #14
-  U1a(W, Wbar),
-  U1b(X, Xbar),
-  U1c(Y, Ybar),
-  U1d(Z, Zbar);
+  U1a(Wbar, W),
+  U1b(Xbar, X),
+  U1c(Ybar, Y),
+  U1d(Zbar, E, Z); //E is ~Z
 
 //function A
 and #15
@@ -63,9 +63,7 @@ or #15
   U8b(D, DT7, DT5);
 
 //function E
-//U1d2 IS U1d (E is ~Z)
-//not U1d2(E, Z);
-Zbar = E;
+//@see U1d
 
 //function F
 and #15
