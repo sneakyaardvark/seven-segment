@@ -13,6 +13,7 @@ SevenSegment SS0(W, X, Y, Z, A, B, C, D, E, F, G);
 
 initial
 begin
+  //dump data for use with GTKWave
   $dumpfile("TestBenchStructural.vcd");
   $dumpvars(0,TestBenchStructural);
 W=0; X=0; Y=0; Z=0;
