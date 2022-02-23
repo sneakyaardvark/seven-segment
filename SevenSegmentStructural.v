@@ -1,17 +1,89 @@
 /*
-This file is part of SevenSegment.
+  ECE 171 Project 1
+  February 2022
+  Andrew Stanton
 
-SevenSegment is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-SevenSegment is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with SevenSegment. If not, see <https://www.gnu.org/licenses/>.
+  BCD to seven segment display code (Strucural code)
 */
 
 module SevenSegment(W, X, Y, Z, A, B, C, D, E, F, G);
 input W, X, Y, Z; //BCD
 output A, B, C, D, E, F, G; //7-Segment outputs
 
-wire ;
-wire ;
+//wires for NOT'd inputs
+wire Wbar, Xbar, Ybar, Zbar;
+
+//wires designated by which output they "flow" to
+wire AT1, AT2, AT3, AT4;
+wire BT1, BT2, BT3;
+wire CT1;
+wire DT1, DT2, DT3, DT4, DT5, DT6, DT7;
+wire FT1, FT2, FT3, FT4, FT5;
+wire GT1, GT2, GT3, GT4, GT5;
+
+//NOT for all inputs
+not #14
+  U1a(W, Wbar),
+  U1b(X, Xbar),
+  U1c(Y, Ybar),
+  U1d(Z, Zbar);
+
+//function A
+and #15
+  U2a(AT1, Xbar, Ybar),
+  U2b(AT2, X, Z);
+or #15
+  U3a(AT3, W, AT1),
+  U3b(AT4, AT3, Y),
+  U3c(A, AT4, AT2);
+
+//function B
+and #15
+  U2c(BT1, Ybar, Zbar),
+  U2d(BT2, Y, Z);
+or #15
+  U3d(BT3, Xbar, BT1),
+  U7a(B, BT3, BT2);
+
+//function C
+or #15
+  U7b(CT1, X, Ybar),
+  U7c(C, CT1, Z);
+
+//function D
+and #15
+  U4a(DT1, Wbar, Xbar),
+  U4b(DT2, DT1, Zbar),
+  U4c(DT5, Y, Zbar),
+  U4d(DT3, X, Ybar),
+  U5a(DT4, DT3, Z);
+or #15
+  U7d(DT6, W, DT2),
+  U8a(DT7, DT6, DT4),
+  U8b(D, DT7, DT5);
+
+//function E
+//U1d2 IS U1d (E is ~Z)
+//not U1d2(E, Z);
+Zbar = E;
+
+//function F
+and #15
+  U5b(FT1, X, Ybar),
+  U5c(FT2, X, Zbar),
+  U5d(FT3, Ybar, Zbar);
+or #15
+  U8c(FT4, W, FT1),
+  U8d(FT5, FT4, FT2),
+  U9a(F, FT5, FT3);
+
+//function G
+and #15
+  U6a(GT1, Xbar, Y),
+  U6b(GT2, X, Ybar),
+  U6c(GT3, X, Zbar);
+or #15
+  U9b(GT4, W, GT1),
+  U9c(GT5, GT4, GT2),
+  U9d(G, GT5, GT3);
 endmodule

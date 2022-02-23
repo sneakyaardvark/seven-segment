@@ -1,3 +1,11 @@
+/*
+  ECE 171 Project 1
+  February 2022
+  Andrew Stanton
+
+  BCD to seven segment display code (Dataflow Test Bench)
+*/
+
 module TestBenchDataflow();
 reg W, X, Y, Z; //inputs
 wire A, B, C, D, E, F, G; //outputs
